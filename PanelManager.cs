@@ -93,6 +93,9 @@ public class PanelManager : MonoBehaviour {
 
 		var authnOptions = new AuthenticateOptions()
 		{
+			//Thank you to arvind-balamurugan: https://github.com/arvind-balamurugan for discovering and providing this resolution the invalid format error on Mac, iOS, Android. 
+			//Explicitly passing UserAgent with the client OS description. Passing UserAgent explicitly is required for Mac/iOS/Android but not for Windows. 
+			UserAgent = System.Runtime.InteropServices.RuntimeInformation.OSDescription,
 			Username = Username.text.ToString(),
 			Password = Password.text.ToString(),
 		};
